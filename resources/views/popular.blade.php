@@ -18,7 +18,7 @@ Popular
           <div class="col-md-8">
             <div class="card-body">
               <h5 class="card-title">{{ $article->title }}</h5>
-              <p class="card-text"><small class="text-muted">{{ $article->date_published }}| {{ $article->writer->name }}</small></p>
+              <p class="card-text"><small class="text-muted">{{ $article->date_published }}| by: {{ $article->writer->name }}</small></p>
               <p class="card-text">{{ $article->slug }}..</p>
               <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                 <a href="{{ route('articles.detail',['id'=>$article->id]) }}">
@@ -30,11 +30,14 @@ Popular
         </div>
       </div>
       @endforeach
-      <nav aria-label="...">
-        <ul class="pagination pagination-sm justify-content-center">
-          {{$articles->links()}}
-        </ul>
-      </nav>
+      <div class="d-grid gap-2 d-md-flex justify-content-center">
+        <a href="{{ $articles->previousPageUrl() }}">
+        <button class="btn btn-primary me-md-2" type="button">Previous</button>
+        </a>
+        <a href="{{ $articles->nextPageUrl() }}">
+        <button class="btn btn-primary" type="button">Next</button>
+        </a>
+      </div>
     </div>
 
 @endsection

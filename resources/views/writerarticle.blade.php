@@ -7,9 +7,9 @@ WriterArticle
 @section('content')
 <div class="container-fluid">
     <div class="row mt-2 mb-2">
-        <img src="{{ asset( $writer->logo) }}" style="width: 100px; height:100px;"alt="">
+        <img src="{{ asset( $writer->logo) }}" style="width: 100px; height:75px; border-radius:50%;"alt="">
         <div class="col">
-            <p>{{ $writer->name }}</p>
+            <p style="color:black; font-weight:bold; margin-left:0.5%;">{{ $writer->name }}</p>
             <p>{{ $writer->description }}</p>
         </div>
     </div>
@@ -22,7 +22,7 @@ WriterArticle
           <div class="col-md-8">
             <div class="card-body">
               <h5 class="card-title">{{ $article->title }}</h5>
-              <p class="card-text"><small class="text-muted">{{ $article->date_published }}| {{ $article->writer->name }}</small></p>
+              <p class="card-text"><small class="text-muted">{{ $article->date_published }}| by: {{ $article->writer->name }}</small></p>
               <p class="card-text">{{ $article->slug }}..</p>
               <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                 <a href="{{ route('articles.detail',['id'=>$article->id]) }}">

@@ -18,7 +18,7 @@ Category
           <div class="col-md-8">
             <div class="card-body">
               <h5 class="card-title">{{ $article->title }}</h5>
-              <p class="card-text"><small class="text-muted">{{ $article->date_published }}| {{ $article->writer->name }}</small></p>
+              <p class="card-text"><small class="text-muted">{{ $article->date_published }}| by: {{ $article->writer->name }}</small></p>
               <p class="card-text">{{ $article->slug }}..</p>
               <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                 <a href="{{ route('articles.detail',['id'=>$article->id]) }}">
